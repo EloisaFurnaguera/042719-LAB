@@ -49,6 +49,31 @@ def sort_by_cohort(filename):
     ghosts = []
 
     # Code goes here
+    cohort_list= open (filename) #Open file
+    for line in cohort_list: #tellinf to go to each line
+        line = line.rstrip() #take the whitespace at the end of each line
+        split_cohort_line = line.split("|") # separete each line (makes it into a line)
+        name = split_cohort_line [0] + " " + split_cohort_line[1] #groups indexes 0 and 1
+
+        # separete per cohort and add to lists
+        if split_cohort_line [4] == "Fall 2015":
+            fall_15.append(name)
+        elif split_cohort_line [4] == "Summer 2016":
+            summer_16.append(name)
+        elif split_cohort_line [4] == "Winter 2016":
+            winter_16.append(name)
+        elif split_cohort_line [4] =="Spring 2016":
+            spring_16.append(name)
+        elif split_cohort_line [4] == "G":
+            ghosts.append(name)
+
+            # add each cohort list to all_studets list
+    all_students.append(fall_15)
+    all_students.append(winter_16)
+    all_students.append(spring_16)
+    all_students.append(summer_16)
+    all_students.append(ghosts)
+
 
     return all_students
 
@@ -75,6 +100,9 @@ def hogwarts_by_house(filename):
     slytherin = []
     ghosts = []
     instructors = []
+
+    cohort_data = open(filename)
+
 
     # Code goes here
 
