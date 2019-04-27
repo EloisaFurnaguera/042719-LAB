@@ -101,10 +101,60 @@ def hogwarts_by_house(filename):
     ghosts = []
     instructors = []
 
-    cohort_data = open(filename)
+    cohort_data = open(filename) #open file
+    for line in cohort_data: # go to each line
+        line = line.rstrip() #eliminate the whitespace oat the end of each line
+        split_cohort_line = line.split("|") #separate every line to make it one list
+
+#move each element to its group
+        if split_cohort_line[-1] ==  "G":
+            ghosts.append(split_cohort_line[1])
 
 
-    # Code goes here
+        elif split_cohort_line[-1] ==  "I":
+            instructors.append(split_cohort_line[1])
+
+        elif split_cohort_line[2] == "Dumbledore's Army":
+            dumbledores_army.append(split_cohort_line[1])
+
+        elif split_cohort_line[2] ==  "Gryffindor":
+            gryffindor.append(split_cohort_line[1])
+
+        elif split_cohort_line[2] ==  "Ravenclaw":
+            ravenclaw.append(split_cohort_line[1])
+
+        elif split_cohort_line[2] ==  "Slytherin":
+            slytherin.append(split_cohort_line[1])
+
+        elif split_cohort_line[2] ==  "Hufflepuff":
+            hufflepuff.append(split_cohort_line[1])
+
+#arrange by alphabetical order
+    dumbledores_army = sorted(dumbledores_army)
+    gryffindor = sorted(gryffindor)
+    hufflepuff = sorted(hufflepuff)
+    ravenclaw = sorted(ravenclaw)
+    slytherin = sorted(slytherin)
+    ghosts = sorted(ghosts)
+    instructors = sorted(instructors)
+
+
+
+#add each name to the list
+    all_hogwarts.append(dumbledores_army)
+    all_hogwarts.append(gryffindor)
+    all_hogwarts.append(hufflepuff)
+    all_hogwarts.append(ravenclaw)
+    all_hogwarts.append(slytherin)
+    all_hogwarts.append(ghosts)
+    all_hogwarts.append(instructors)
+
+
+
+
+
+
+
 
     return all_hogwarts
 
